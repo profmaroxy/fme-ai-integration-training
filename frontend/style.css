@@ -1,0 +1,103 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 60px;
+    background: white;
+    border-bottom: 2px solid #eee;
+}
+
+.navbar-logo {
+    font-size: 30px;
+    font-weight: 800;
+    color: #333;
+    letter-spacing: 2px;
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 50px; /* MORE SPACE */
+}
+
+.navbar-menu li a {
+    text-decoration: none;
+    color: #444;
+    font-size: 20px; /* larger */
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navbar-menu li a:hover {
+    color: #0077cc;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #e8f0ff, #ffffff);
+}
+
+/* Dove wrapper */
+.dove-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Dove Image (rotating + draggable) */
+.dove {
+    width: 160px;
+    position: relative;
+    cursor: grab;
+    animation: rotate 10s linear infinite;
+    transform: translateX(-40px); /* MOVE LEFT */
+}
+
+@keyframes rotate {
+    0%   { transform: translateX(-40px) rotate(0deg); }
+    100% { transform: translateX(-40px) rotate(360deg); }
+}
+
+/* TEXT */
+.hero-title {
+    font-size: 48px;
+    font-weight: 900;
+    color: #222;
+    margin-top: 20px;
+}
+
+.hero-text {
+    font-size: 20px;
+    color: #555;
+    margin-top: 15px;
+    line-height: 1.8;
+}
+
+/* BUTTON */
+.hero-btn {
+    margin-top: 25px;
+    padding: 15px 40px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    background: #0077cc;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.hero-btn:hover {
+    background: #005fa3;
+}

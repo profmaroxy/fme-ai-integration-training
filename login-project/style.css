@@ -1,0 +1,196 @@
+/* === reset & base === */
+* {box-sizing: border-box}
+html,body {height:100%}
+body {
+  margin:0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color:#222;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* === background hero (full bleed) === */
+.hero {
+  min-height: calc(100vh - 90px);
+  background-image: url("images/background.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display:flex;
+  align-items:flex-start;
+  padding: 60px 80px;
+  position:relative;
+}
+
+/* subtle dark overlay so modal shows up */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.45));
+  pointer-events:none;
+}
+
+/* === top bar (thin box look) === */
+.topbar {
+  position:fixed;
+  left:20px; right:20px; top:20px;
+  z-index:1200;
+}
+
+/* CHANGED: brown-themed topbar for logo/login layer */
+.topbar-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  /* warm brown gradient instead of white */
+  background: linear-gradient(180deg, #7b4f34 0%, #5d3624 100%);
+  border: 1px solid rgba(0,0,0,0.12);
+  padding: 14px 20px;
+  border-radius:8px;
+  backdrop-filter: blur(4px);
+
+  /* drop shadow to lift it slightly */
+  box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+}
+
+/* brand */
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:38px;height:38px;object-fit:contain}
+
+/* brand name - light cream for contrast */
+.brand-name{
+  font-weight:700;
+  font-size:18px;
+  color: #fff9f3; /* soft cream */
+}
+
+/* nav links (right) */
+.nav-links{
+  display:flex;
+  gap:28px;
+  align-items:center;
+}
+
+/* links are now light on brown with subtle translucent background */
+.nav-links a{
+  color: #fff9f3;
+  text-decoration:none;
+  font-weight:600;
+  font-size:15px;
+  padding:6px 10px;
+  background: rgba(255,255,255,0.06); /* translucent light */
+  border-radius:6px;
+  transition:background .18s, transform .12s, color .12s;
+}
+
+/* hover: slightly brighter cream */
+.nav-links a:hover{
+  background: rgba(255,255,255,0.12);
+  transform:translateY(-2px);
+  color: #fff;
+}
+
+/* top CTA (right-most small button) */
+/* changed: now a soft brown button with cream text */
+.btn-outline{
+  background: linear-gradient(180deg, #b07b56, #9a5f3f); /* warm light-brown */
+  color: #fff9f3;
+  border: 1px solid rgba(255,255,255,0.06);
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:700;
+  box-shadow: 0 6px 18px rgba(121,63,31,0.18);
+}
+
+/* === hero left intro (optional) === */
+.hero-left{
+  max-width:480px;
+  color:#fff;
+  position:relative;
+  z-index:10; /* above dark overlay */
+}
+.hero-left h1{
+  font-size:44px;
+  margin:8px 0 10px;
+  letter-spacing:-0.02em;
+}
+.lead{font-size:18px;opacity:0.95}
+
+/* === modal backdrop & card === */
+.modal-backdrop{
+  position:fixed;
+  inset:0;
+  display:none;           /* shown by JS */
+  align-items:center;
+  justify-content:center;
+  z-index:1300;
+  background:rgba(0,0,0,0.45);
+}
+
+/* login card */
+.login-card{
+  width:360px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), #ffffff);
+  border-radius:10px;
+  padding:22px 22px;
+  box-shadow: 0 10px 35px rgba(10,20,25,0.35);
+  position:relative;
+  color:#222;
+}
+
+/* close button */
+.login-card .close{
+  position:absolute;
+  right:12px;
+  top:10px;
+  background:rgba(0,0,0,0.06);
+  border:0;
+  border-radius:6px;
+  width:30px;height:30px;
+  cursor:pointer;
+}
+
+/* form */
+.login-card h2{ text-align:center; margin:6px 0 14px; font-size:22px; color:#244f34 }
+.login-form label{ display:block; margin-bottom:12px; font-size:13px; color:#444}
+.login-form input{
+  width:100%;
+  padding:10px 12px;
+  border:1px solid #e6e6e6;
+  border-radius:8px;
+  margin-top:6px;
+  font-size:14px;
+}
+
+/* row helpers */
+.row{display:flex;gap:10px;align-items:center}
+.row.between{ justify-content:space-between; }
+
+/* buttons */
+.btn-primary{
+  display:block;
+  width:100%;
+  padding:11px 14px;
+  margin-top:14px;
+  background: linear-gradient(180deg,#2e8b57,#1f6b43); /* green */
+  color:#fff;
+  border:0;
+  border-radius:8px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* small text */
+.muted{font-size:13px;text-align:center;color:#666;margin-top:10px}
+
+/* responsive tweaks */
+@media (max-width:880px){
+  .hero{padding:40px 22px}
+  .nav-links{display:none}           /* hide large nav on small */
+  .brand-name{font-size:16px}
+  .login-card{width:320px}
+  .hero-left h1{font-size:28px}
+}

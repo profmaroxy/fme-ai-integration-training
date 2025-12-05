@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dove Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <div class="navbar-logo">DOVE</div>
+
+        <ul class="navbar-menu">
+            <li class="menu-item"><a href="#">Home</a></li>
+            <li class="menu-item"><a href="#">About</a></li>
+            <li class="menu-item"><a href="#">Services</a></li>
+            <li class="menu-item"><a href="#">Contacts</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+
+        <!-- Dove Image (draggable + rotating) -->
+        <div class="dove-wrapper">
+            <img src="image/dove.png" alt="Dove Icon" class="dove" id="dove">
+        </div>
+
+        <!-- Text under the dove -->
+        <h1 class="hero-title">Peaceful. Pure. Powerful.</h1>
+        <p class="hero-text">
+            The Dove platform is designed to inspire clarity, beauty, and harmony—<br>
+            a peaceful space where creativity rises and ideas take flight.
+        </p>
+
+        <button class="hero-btn">Explore Now</button>
+
+    </section>
+
+    <!-- ===== DRAGGABLE JS ===== -->
+    <script>
+        const dove = document.getElementById('dove');
+
+        let isDown = false;
+        let offset = [0,0];
+
+        dove.addEventListener('mousedown', function(e) {
+            isDown = true;
+            offset = [
+                dove.offsetLeft - e.clientX,
+                dove.offsetTop - e.clientY
+            ];
+        });
+
+        document.addEventListener('mouseup', function() {
+            isDown = false;
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            if (isDown) {
+                dove.style.left = (e.clientX + offset[0]) + 'px';
+                dove.style.top = (e.clientY + offset[1]) + 'px';
+            }
+        });
+    </script>
+
+</body>
+</html>
