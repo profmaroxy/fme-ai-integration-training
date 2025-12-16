@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Click Counter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #count {
+      font-size: 40px;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Click Counter</h1>
+  <div id="count">0</div>
+
+  <button id="increaseBtn">Increase</button>
+  <button id="decreaseBtn">Decrease</button>
+  <button id="resetBtn">Reset</button>
+  <button id="doubleBtn">Double</button>
+
+  <script>
+    const count = {
+      value: 0
+    };
+
+    function increase() {
+      count.value += 1;
+      displayCount();
+    }
+
+    function decrease() {
+      count.value -= 1;
+      displayCount();
+    }
+
+    function reset() {
+      count.value = 0;
+      displayCount();
+    }
+
+    function doubleCount() {
+      count.value = count.value * 2;
+      displayCount();
+    }
+
+    function displayCount() {
+      const countElement = document.getElementById("count");
+      countElement.textContent = count.value;
+    }
+
+    document.getElementById("increaseBtn").addEventListener("click", increase);
+    document.getElementById("decreaseBtn").addEventListener("click", decrease);
+    document.getElementById("resetBtn").addEventListener("click", reset);
+    document.getElementById("doubleBtn").addEventListener("click", doubleCount);
+  </script>
+
+</body>
+</html>
