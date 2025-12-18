@@ -67,9 +67,10 @@ li {
 }
 
 li.completed {
+  background: #d4edda;
+  color: #155724;
   text-decoration: line-through;
-  color: #999;
-  background: #e2e6ea;
+  font-weight: bold;
 }
 
 li button {
